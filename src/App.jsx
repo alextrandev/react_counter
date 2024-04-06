@@ -1,7 +1,12 @@
+import Counter from "./Counter"
+import Header from "./Header"
+
 function App() {
   return (
     <>
-<h1>Hello world!</h1>
+      <Header />
+      <p>Hello world!</p>
+      <Counter />
     </>
   )
 }
