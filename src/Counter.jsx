@@ -6,11 +6,17 @@ function Counter() {
     const [counter, setCounter] = useState(600)
 
     const handleAttack = () => {
-        setCounter((preCounter) => preCounter - 1)
+        setCounter((preCounter) => {
+        let randomCount = preCounter + Math.round(Math.random() * 10)
+        return randomCount
+        })
     }
 
     const handleDefence = () => {
-        setCounter((preCounter) => preCounter + 1)
+        setCounter((preCounter) => {
+        let randomCount = preCounter - Math.round(Math.random() * 10)
+        return randomCount
+        })
     }
 
     const handleReset = () => {
