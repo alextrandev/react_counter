@@ -38,7 +38,7 @@ function Counter() {
     }
 
     return (
-        <div className='row text-white text-center'>
+    <main className='row text-white text-center w-100'>
       <h1>Counter: {counter} </h1>
       <p>You win when counter reach 0</p>
       <p>{lastPlay == '' ? "Lets Play!" : lastPlay}</p>
@@ -66,7 +66,7 @@ function Counter() {
         <button className='btn btn-secondary w-100 mt-2' onClick={handleRandomPlay}>Random Play</button>
         <button className='btn btn-warning w-100 mt-2' onClick={handleReset}>Reset</button>
       </div>
-    </div>
+    </main>
     )
 }
 
