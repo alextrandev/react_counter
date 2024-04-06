@@ -17,6 +17,11 @@ function Counter() {
         setCounter(600)
     }
 
+    const handleRandomPlay = () => {
+        let playMode = Math.round(Math.random())
+        playMode === 0 ? handleAttack() : handleDefence();
+    }
+
     return (
         <div className='row text-white text-center'>
       <h1>Counter: {counter} </h1>
@@ -43,7 +48,7 @@ function Counter() {
       </div>
 
       <div className='col-12 col-md-4 offset-md-4'>
-        <button className='btn btn-secondary w-100 mt-2'>Random Play</button>
+        <button className='btn btn-secondary w-100 mt-2' onClick={handleRandomPlay}>Random Play</button>
         <button className='btn btn-warning w-100 mt-2' onClick={handleReset}>Reset</button>
       </div>
     </div>
