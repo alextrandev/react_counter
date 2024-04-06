@@ -4,23 +4,32 @@ import defenceImg from './assets/defend.png'
 
 function Counter() {
     const [counter, setCounter] = useState(600)
+    const [lastPlay, setLastPlay] = useState('')
+    const [gameStatus, setGamestatus] = useState('Playing')
 
     const handleAttack = () => {
         setCounter((preCounter) => {
-        let randomCount = preCounter + Math.round(Math.random() * 10)
+        let randomCount = preCounter - Math.round(Math.random() * 10)
+        setLastPlay('Attacked!')
+
+        randomCount <= 0 ? setGamestatus('You won!') : setGamestatus('Playing');
+
         return randomCount
         })
     }
 
     const handleDefence = () => {
         setCounter((preCounter) => {
-        let randomCount = preCounter - Math.round(Math.random() * 10)
+        let randomCount = preCounter + Math.round(Math.random() * 10)
+        setLastPlay('Defended!')
+        randomCount <= 0 ? setGamestatus('You won!') : setGamestatus('Playing');
         return randomCount
         })
     }
 
     const handleReset = () => {
         setCounter(600)
+        setLastPlay('')
     }
 
     const handleRandomPlay = () => {
@@ -32,15 +41,15 @@ function Counter() {
         <div className='row text-white text-center'>
       <h1>Counter: {counter} </h1>
       <p>You win when counter reach 0</p>
-      <p>Let&#39;s Play: </p>
-      <p>Game status:</p>
+      <p>{lastPlay == '' ? "Lets Play!" : lastPlay}</p>
+      <p>Game status: {gameStatus}</p>
       <div className='col-6 col-md-3 offset-md-3'>
         <img
           className='p-4 rounded'
           src={attackImg}
           alt='Attack'
           onClick={handleAttack}
-          style={{ cursor: 'pointer', width: '100%', border: '2px solid green' }}
+          style={{ cursor: 'pointer', width: '100%', border: '2px solid red' }}
         />
       </div>
       <div className='col-6 col-md-3'>
